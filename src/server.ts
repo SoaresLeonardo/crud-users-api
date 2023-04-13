@@ -1,13 +1,32 @@
-import express from "express";
+import "express-async-errors";
+import express, { NextFunction, Request, Response, json } from "express";
+import routes from "./routes";
 import dotenv from "dotenv";
+import { ApiError } from "./middleware/ApiError";
 
 dotenv.config();
 
-const app = express();
 const port = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "Hello" });
+const app = express();
+
+app.use(json());
+
+app.use(routes);
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+  if (error instanceof ApiError) {
+    return res.status(error.statusCode).json({
+      statusCode: error.statusCode,
+      message: error.message,
+      success: error.success,
+    });
+  }
+  return res.status(500).json({
+    status: "error",
+    message: `Internal Server Error ${error.message}`,
+  });
 });
 
-app.listen(port, () => console.log(`Server is running in port ${port} :)`));
+app.listen(port, () => console.log(`Server is running in port ${port} 🚀`));
