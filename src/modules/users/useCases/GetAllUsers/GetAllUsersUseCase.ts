@@ -1,9 +1,10 @@
 import { User } from "@prisma/client";
-import { prisma } from "../../../../services/prisma";
+import { IUsersRepository } from "../../../repositories/IUsersRepository";
 
 export class GetAllUsersUseCase {
-  async execute(): Promise<User[]> {
-    const users = await prisma.user.findMany();
+  constructor(private readonly useRepository: IUsersRepository) {}
+  async execute(): Promise<User[] | null> {
+    const users = await this.useRepository.list();
 
     return users;
   }

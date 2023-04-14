@@ -2,10 +2,9 @@ import { Request, Response } from "express";
 import { GetAllUsersUseCase } from "./GetAllUsersUseCase";
 
 export class GetAllUsersController {
-  async handle(req: Request, res: Response) {
-    const getAllUsersUseCase = new GetAllUsersUseCase();
-
-    const response = await getAllUsersUseCase.execute();
+  constructor(private readonly getAllUsersUseCase: GetAllUsersUseCase) {}
+  async handle(req: Request, res: Response): Promise<Response> {
+    const response = await this.getAllUsersUseCase.execute();
 
     return res.status(200).json({
       statusCode: 200,
