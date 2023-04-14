@@ -5,7 +5,7 @@ export class ApiError {
 
   public readonly statusCode: number;
 
-  constructor(message: string, statusCode = 400, success = true) {
+  constructor(message: string, statusCode = 400, success = false) {
     this.message = message;
     this.statusCode = statusCode;
     this.success = success;
