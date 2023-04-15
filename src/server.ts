@@ -29,4 +29,4 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-app.listen(port, () => console.log(`Server is running in port ${port} 🚀`));
+app.listen(port, () => console.log(`Server is running in port ${port}`));
