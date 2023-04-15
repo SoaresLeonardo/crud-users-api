@@ -1,13 +1,15 @@
 import { ApiError } from "../../../../middleware/ApiError";
 import { prisma } from "../../../../services/prisma";
 import { User } from "@prisma/client";
-import { UpdateUserDTO } from "./UpdateUserDTO";
+import { IUsersRepository } from "../../../repositories/IUsersRepository";
+import { IUpdateUserDTO } from "../../../dtos/UpdateUserDTO";
 
 export class UpdateUserUseCase {
-  async execute({ id, name, email }: UpdateUserDTO): Promise<User | null> {
+  constructor(private readonly userRepository: IUsersRepository) {}
+  async execute({ id, name, email }: IUpdateUserDTO): Promise<User | null> {
     const user = await prisma.user.findUnique({
       where: {
-        id: id,
+        id,
       },
     });
 
@@ -27,12 +29,9 @@ export class UpdateUserUseCase {
       throw new ApiError("User email not provided", 404);
     }
 
-    await prisma.user.update({
-      where: { id: id },
-      data: { name, email },
-    });
+    await this.userRepository.update({ id, name, email });
 
-    const updateUser = await prisma.user.findUnique({ where: { id: id } });
+    const updateUser = await prisma.user.findUnique({ where: { id } });
 
     return updateUser;
   }
