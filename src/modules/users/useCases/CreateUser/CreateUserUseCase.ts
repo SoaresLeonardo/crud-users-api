@@ -3,6 +3,7 @@ import { prisma } from "../../../../shared/services/prisma";
 import { ApiError } from "../../../../shared/middleware/ApiError";
 import { ICreateUserDTO } from "../../dtos/CreateUserDTO";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { validateEmail } from "../../validators/EmailValidator";
 export class CreateUserUseCase {
   constructor(private readonly userRepository: IUsersRepository) {}
 
@@ -15,6 +16,10 @@ export class CreateUserUseCase {
     });
 
     // Validations
+    if (!validateEmail(email)) {
+      throw new ApiError("Invalid email", 400);
+    }
+
     if (userAlreadyExists) {
       throw new ApiError("User already exists", 422);
     }
