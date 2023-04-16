@@ -23,6 +23,10 @@ Now that we have all the project dependencies installed, make sure that: <br/>
 yarn start:dev
 ```
 
+```bash
+npm run start:dev
+```
+
 The API will be available from http://localhost:3000 or http://localhost:3333, depending on the port configuration defined in the .env file. To run the tests on port 3333, just create an .env.test file and add the PORT variable with the value 3333.
 
 ## **Routes**
