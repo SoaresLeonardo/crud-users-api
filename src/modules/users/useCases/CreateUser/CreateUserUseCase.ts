@@ -1,8 +1,8 @@
 import { User } from "@prisma/client";
-import { prisma } from "../../../../services/prisma";
-import { ApiError } from "../../../../middleware/ApiError";
-import { ICreateUserDTO } from "../../../dtos/CreateUserDTO";
-import { IUsersRepository } from "../../../repositories/IUsersRepository";
+import { prisma } from "../../../../shared/services/prisma";
+import { ApiError } from "../../../../shared/middleware/ApiError";
+import { ICreateUserDTO } from "../../dtos/CreateUserDTO";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 export class CreateUserUseCase {
   constructor(private readonly userRepository: IUsersRepository) {}
 

@@ -2,7 +2,7 @@ import "express-async-errors";
 import express, { NextFunction, Request, Response, json } from "express";
 import routes from "./routes";
 
-import { ApiError } from "./middleware/ApiError";
+import { ApiError } from "./shared/middleware/ApiError";
 
 const app = express();
 

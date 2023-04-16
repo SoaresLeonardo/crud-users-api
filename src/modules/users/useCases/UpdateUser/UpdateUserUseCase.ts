@@ -1,8 +1,8 @@
-import { ApiError } from "../../../../middleware/ApiError";
-import { prisma } from "../../../../services/prisma";
+import { ApiError } from "../../../../shared/middleware/ApiError";
+import { prisma } from "../../../../shared/services/prisma";
 import { User } from "@prisma/client";
-import { IUsersRepository } from "../../../repositories/IUsersRepository";
-import { IUpdateUserDTO } from "../../../dtos/UpdateUserDTO";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { IUpdateUserDTO } from "../../dtos/UpdateUserDTO";
 
 export class UpdateUserUseCase {
   constructor(private readonly userRepository: IUsersRepository) {}

@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import { IUsersRepository } from "../../../repositories/IUsersRepository";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 export class GetAllUsersUseCase {
   constructor(private readonly useRepository: IUsersRepository) {}
