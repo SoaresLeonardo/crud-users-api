@@ -16,14 +16,10 @@ export class CreateUserUseCase {
     });
 
     // Validations
-    if (!validateEmail(email)) {
-      throw new ApiError("Invalid email", 400);
-    }
-
     if (userAlreadyExists) {
       throw new ApiError("User already exists", 422);
     }
-
+    
     if (!name) {
       throw new ApiError("Name was not provided in the request", 400);
     }
@@ -31,6 +27,12 @@ export class CreateUserUseCase {
     if (!email) {
       throw new ApiError("E-mail was not provided in the request", 400);
     }
+
+    if (!validateEmail(email)) {
+      throw new ApiError("Invalid email", 400);
+    }
+
+
 
     // create user
     const user = await this.userRepository.create({
