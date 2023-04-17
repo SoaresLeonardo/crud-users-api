@@ -1,8 +1,10 @@
 # Users CRUD with Node.js
 
-Hello devs👋, how are you? I came here to showcase my project, a user CRUD made with Node.js. I decided to create this project to update my Node.js concepts and practice my skills. I plan to bring more updates to the API to improve the performance of the project🤗.
+Hello devs👋, how are you? I came here to show my project, a user CRUD made with Node.js. I decided to create this project to remember some Node.js concepts and practice my skills 🤗
 
-## Install
+<hr/>
+
+## 📦Install
 Before you start, you need to have Node.js and npm or yarn (Node.js package manager) installed on your machine. Then clone this repository and, inside the project folder, run the following command to install the dependencies:
   
 ```bash
@@ -13,7 +15,7 @@ yarn install
 npm install
 ```
 
-## Run the app
+## 🎲Run the app
 Now that we have all the project dependencies installed, make sure that: <br/>
 
 -  The project uses the ORM the prism that connects with the mongodb so it is necessary to edit the DATABASE_URL with your connection URL inside the .env.example
@@ -128,7 +130,7 @@ Delete the user
 
 <hr/>
 
-## Technologies and tools used
+## 🛠Technologies and tools used
 
 - Node.s
 - Typescript
@@ -137,6 +139,6 @@ Delete the user
 
 ## Conclusion
 
-This is a simple API, and there are still many functionalities to be added. However, I wanted to show you how the development of this project is going.
+This is my API, built in Node.js where I practiced some Node.js concepts and tested Prisma(ORM) to connect to a database, which I chose to be MongoDB. Possible updates may occur in the project, as I can bring improvements and more functionality to the API as I continue to develop it. So see you soon.
 
-
+💜 Built by Leonardo
