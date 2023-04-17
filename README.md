@@ -139,6 +139,6 @@ Delete the user
 
 ## Conclusion
 
-This is a simple API, and there are still many functionalities to be added. However, I wanted to show you how the development of this project is going.
+This is my API, built in Node.js where I practiced some Node.js concepts and tested Prisma(ORM) to connect to a database, which I chose to be MongoDB. Possible updates may occur in the project, as I can bring improvements and more functionality to the API as I continue to develop it. So see you soon.
 
 💜 Built by Leonardo
