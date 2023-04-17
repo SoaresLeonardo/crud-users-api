@@ -13,20 +13,8 @@ export class UpdateUserUseCase {
       },
     });
 
-    if (!id) {
-      throw new ApiError("User ID not provided", 400);
-    }
-
     if (!user) {
       throw new ApiError("User not found", 404);
-    }
-
-    if (!name) {
-      throw new ApiError("User name not provided", 404);
-    }
-
-    if (!email) {
-      throw new ApiError("User email not provided", 404);
     }
 
     await this.userRepository.update({ id, name, email });
