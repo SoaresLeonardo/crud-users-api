@@ -52,6 +52,25 @@ Returns a list of all registered users.
 }
 ```
 
+## `GET /users/:id`
+
+Search for a user with the entered ID.
+
+### Response
+
+```json
+{
+  "statusCode": 200,
+  "success": true,
+  "message": "Here is your quest",
+  "data": {
+  "id": "6439f413df01d602184fab76",
+  "name": "user test",
+  "email": "usertest@gmail.com"
+  }
+}
+```
+
 ## `POST /users`
 
 Create a new user
@@ -111,7 +130,7 @@ It is important to insert the user id in the url parameter!
 
 ## `DELETE /users/:id`
 
-Delete the user
+Delete the user.
 
 ### Response
 
