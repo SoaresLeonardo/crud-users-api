@@ -71,6 +71,8 @@ Search for a user with the entered ID.
 }
 ```
 
+It is important to insert the user id in the url parameter!
+
 ## `POST /users`
 
 Create a new user
@@ -146,6 +148,8 @@ Delete the user.
   ]
 }
 ```
+
+It is important to insert the user id in the url parameter!
 
 <hr/>
 
