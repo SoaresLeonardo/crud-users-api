@@ -24,6 +24,13 @@ export class UsersRepository implements IUsersRepository {
     return listUsers;
   }
 
+  // Search by id
+  async listById({ id }: IDeleteUserDTO): Promise<User | null> {
+    const listUserById = await prisma.user.findUnique({ where: { id: id } });
+
+    return listUserById;
+  }
+
   // Update Users
   async update({ id, name, email }: IUpdateUserDTO): Promise<User> {
     const updateUser = await prisma.user.update({
