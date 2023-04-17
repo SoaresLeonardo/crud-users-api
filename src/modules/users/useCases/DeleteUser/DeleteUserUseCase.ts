@@ -15,7 +15,6 @@ export class DeleteUserUseCase {
     });
 
     // Validations
-
     if (!id) {
       throw new ApiError("User ID not provided", 400);
     }
