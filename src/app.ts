@@ -1,10 +1,13 @@
 import "express-async-errors";
 import express, { NextFunction, Request, Response, json } from "express";
 import routes from "./routes";
+import cors from "cors";
 
 import { ApiError } from "./shared/middleware/ApiError";
 
 const app = express();
+
+app.use(cors());
 
 app.use(json());
 
